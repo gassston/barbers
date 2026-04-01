@@ -23,6 +23,7 @@ RUN npm install --workspace=apps/web --workspace=packages/shared
 COPY apps/web ./apps/web/
 COPY packages/shared ./packages/shared/
 COPY tsconfig.base.json ./
+RUN npm run build -w packages/shared
 WORKDIR /app/apps/web
 RUN npm run build
 
