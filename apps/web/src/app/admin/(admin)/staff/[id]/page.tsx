@@ -2,6 +2,7 @@ import { StaffDetailClient } from "./StaffDetailClient";
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Editar staff — PeluQ'arte Admin" };
 
 async function getStaff(id: string) {
