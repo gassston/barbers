@@ -27,10 +27,11 @@ async function getServices() {
 export default async function StaffDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const [staff, services] = await Promise.all([
-    getStaff(params.id),
+    getStaff(id),
     getServices(),
   ]);
 
