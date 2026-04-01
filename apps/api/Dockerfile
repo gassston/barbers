@@ -36,9 +36,10 @@ ENV NODE_ENV=production
 COPY package.json ./
 COPY apps/api/package.json ./apps/api/
 COPY packages/shared/package.json ./packages/shared/
+COPY prisma ./prisma/
 RUN npm install --workspace=apps/api --workspace=packages/shared --omit=dev
+RUN npx prisma generate --schema=prisma/schema.prisma
 COPY --from=builder /app/apps/api/dist ./apps/api/dist
 COPY --from=builder /app/packages/shared/dist ./packages/shared/dist
-COPY prisma ./prisma/
 WORKDIR /app/apps/api
 CMD ["node", "dist/index.js"]
