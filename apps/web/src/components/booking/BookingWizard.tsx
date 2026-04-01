@@ -125,7 +125,7 @@ export function BookingWizard() {
       )}
       {step === "confirm" && booking.service && booking.staff && booking.slot && (
         <ConfirmStep
-          booking={booking as Required<BookingState>}
+          booking={booking as { service: ServiceDTO; staff: StaffDTO; slot: AvailableSlot; date: string }}
           onBooked={onBooked}
           onBack={goBack}
         />
