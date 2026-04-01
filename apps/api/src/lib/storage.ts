@@ -1,4 +1,5 @@
 import * as Minio from "minio";
+import type { Readable } from "stream";
 import { config } from "../config.js";
 
 export const storage = new Minio.Client({
@@ -19,7 +20,7 @@ export async function ensureBucketExists(): Promise<void> {
 
 export async function uploadFile(
   objectName: string,
-  stream: Buffer | NodeJS.ReadableStream,
+  stream: Buffer | Readable,
   size: number,
   contentType: string,
 ): Promise<string> {

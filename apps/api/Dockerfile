@@ -26,6 +26,7 @@ COPY apps/api ./apps/api/
 COPY packages/shared ./packages/shared/
 COPY tsconfig.base.json ./
 COPY prisma ./prisma/
+RUN npx prisma generate --schema=prisma/schema.prisma
 RUN npm run build -w packages/shared
 RUN npm run build -w apps/api
 
