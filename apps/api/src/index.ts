@@ -33,7 +33,7 @@ await app.register(helmet, { contentSecurityPolicy: false });
 
 await app.register(cors, {
   origin: config.NODE_ENV === "production"
-    ? ["https://yourdomain.com"]
+    ? [config.WEB_URL, `https://www.${new URL(config.WEB_URL).hostname}`]
     : ["http://localhost:3000"],
   credentials: true,
 });
