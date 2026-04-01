@@ -10,11 +10,14 @@ const envSchema = z.object({
   BETTER_AUTH_SECRET: z.string().min(32),
   BETTER_AUTH_URL: z.string().url(),
 
-  MINIO_ENDPOINT: z.string().default("localhost"),
-  MINIO_PORT: z.coerce.number().default(9000),
-  MINIO_ROOT_USER: z.string(),
-  MINIO_ROOT_PASSWORD: z.string(),
-  MINIO_BUCKET: z.string().default("barbers"),
+  // Storage — en dev apunta a MinIO local, en prod a S3
+  STORAGE_ENDPOINT: z.string().default("localhost"),
+  STORAGE_PORT: z.coerce.number().optional(),
+  STORAGE_USE_SSL: z.coerce.boolean().default(false),
+  STORAGE_ACCESS_KEY: z.string(),
+  STORAGE_SECRET_KEY: z.string(),
+  STORAGE_BUCKET: z.string().default("barbers"),
+  STORAGE_REGION: z.string().default("us-east-1"),
 
   RESEND_API_KEY: z.string().optional(),
   EMAIL_FROM: z.string().email().optional(),
