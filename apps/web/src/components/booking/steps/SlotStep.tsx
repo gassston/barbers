@@ -42,7 +42,7 @@ export function SlotStep({ service, staff, onSelect, onBack }: Props) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3">
-        <button onClick={onBack} className="text-gray-400 hover:text-gray-600">
+        <button onClick={onBack} className="p-2 -ml-2 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-brand-700 transition-colors">
           ←
         </button>
         <h2 className="text-lg font-semibold">Elegí fecha y hora</h2>
@@ -103,7 +103,7 @@ export function SlotStep({ service, staff, onSelect, onBack }: Props) {
                 <button
                   key={slot.start}
                   onClick={() => onSelect(slot, dateStr)}
-                  className="rounded-lg border border-gray-200 py-2 text-sm font-medium text-gray-700 hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700 transition-colors"
+                  className="rounded-lg border border-gray-200 py-3 text-sm font-medium text-gray-700 hover:border-brand-500 hover:bg-brand-50 hover:text-brand-700 transition-colors"
                 >
                   {time}
                 </button>

@@ -58,7 +58,7 @@ export function ConfirmStep({ booking, onBooked, onBack }: Props) {
   return (
     <div className="space-y-5">
       <div className="flex items-center gap-3">
-        <button onClick={onBack} className="text-gray-400 hover:text-gray-600">
+        <button onClick={onBack} className="p-2 -ml-2 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-brand-700 transition-colors">
           ←
         </button>
         <h2 className="text-lg font-semibold">Confirmá tu turno</h2>

@@ -13,7 +13,7 @@ const envSchema = z.object({
   // Storage — en dev apunta a MinIO local, en prod a S3
   STORAGE_ENDPOINT: z.string().default("localhost"),
   STORAGE_PORT: z.coerce.number().optional(),
-  STORAGE_USE_SSL: z.coerce.boolean().default(false),
+  STORAGE_USE_SSL: z.string().transform((v) => v === "true").default("false"),
   STORAGE_ACCESS_KEY: z.string(),
   STORAGE_SECRET_KEY: z.string(),
   STORAGE_BUCKET: z.string().default("barbers"),
